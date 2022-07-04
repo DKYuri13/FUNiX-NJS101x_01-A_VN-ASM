@@ -19,5 +19,8 @@
   "homepage": "https://github.com/DKYuri13/FUNiX-NJS101x_01-A_VN-ASM#readme",
   "devDependencies": {
     "nodemon": "^2.0.18"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
