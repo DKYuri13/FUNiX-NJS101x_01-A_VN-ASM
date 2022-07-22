@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('node-complete', 'root', 'Quang013.', {
-    dielect: 'mysql',
+    dialect: 'mysql',
     host: 'localhost'
 });
 
