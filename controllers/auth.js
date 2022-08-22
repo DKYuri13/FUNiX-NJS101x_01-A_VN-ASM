@@ -3,7 +3,7 @@ exports.getLogin = (req, res, next) => {
         .get('Cookie')
         .split(';')[0]
         .trim()
-        .split('=')[1];
+        .split('=')[1] === 'true';
     res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
