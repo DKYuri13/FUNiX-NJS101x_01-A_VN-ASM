@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const { validationResult } = require('express-validator');
 
 const Product = require('../models/product');
@@ -17,7 +15,7 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
-  const imageUrl = req.body.imageUrl;
+  const imageUrl = req.body.image;
   const price = req.body.price;
   const description = req.body.description;
   const errors = validationResult(req);
@@ -40,7 +38,6 @@ exports.postAddProduct = (req, res, next) => {
   }
 
   const product = new Product({
-    _id: new mongoose.Types.ObjectId('6305c901a36c5615305fc597'),
     title: title,
     price: price,
     description: description,
