@@ -112,7 +112,7 @@ exports.getEditProduct = (req, res, next) => {
         product: product,
         hasError: false,
         errorMessage: null,
-        validationErrors: [],
+        validationErrors: []
       });
     })
     .catch(err => {
@@ -131,7 +131,7 @@ exports.postEditProduct = (req, res, next) => {
 
   const errors = validationResult(req);
 
-  if(!errors.isEmpty()) {
+  if (!errors.isEmpty()) {
     return res.status(422).render('admin/edit-product', {
       pageTitle: 'Edit Product',
       path: '/admin/edit-product',
