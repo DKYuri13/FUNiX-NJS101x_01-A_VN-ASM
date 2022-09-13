@@ -6,7 +6,6 @@ const Covid = require('../model/covid');
 exports.getRollCall = (req, res, next) => {
     Staff.findOne().populate(['sessions']).populate(['annualLeave'])    //Trả về staff và session, annualLeave tương ứng với staff
         .then(staff => {
-            console.log(staff.sessions)
             res.render('app/roll-call', {
                 staff: staff,
                 workSessions: staff.sessions,
