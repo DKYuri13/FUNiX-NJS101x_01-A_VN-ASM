@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const errorController = require('./controllers/error');     //Controller, model,....
+const errorController = require('./controllers/error');     //Import Controller, model,....
 const Staff = require('./model/staff');
 const Covid = require('./model/covid');
 
@@ -27,11 +27,11 @@ app.use((req, res, next) => {                       //Tìm staff (mặc định)
         .catch(err => console.log(err));
 });
 
-app.use(staffRoutes);
+app.use(staffRoutes);                     //Routes
 
-app.use(errorController.get404);
+app.use(errorController.get404);                                    //Xử lý các link sai/không tồn tại
 
-mongoose
+mongoose                                                                                                        //connect DB và server
     .connect('mongodb+srv://Quang:Quang013@cluster1.oehkwdn.mongodb.net/rollcall?retryWrites=true&w=majority')
     .then(result => {
         Staff.findOne().then(staff => {             //Tạo staff (mặc định)

@@ -22,11 +22,14 @@ exports.getRollCall = (req, res, next) => {
 exports.postRollCall = (req, res, next) => {       //Post checkin
 
 const workplace = req.body.workplace;
+
 const current = new Date();
 const month = current.getMonth() + 1;
 const day = current.getDate();
 const startTime = current;
+
 const status = req.body.status;
+
 const length = req.staff.sessions.length - 1;                 // Index của work session mới nhất
 
 WorkSession.findById(req.staff.sessions[length])
@@ -133,7 +136,7 @@ exports.postAnnualLeave = (req, res, next) => {     //Post xin nghỉ
     const annualLeaveHour = req.body.annualLeaveHour;
     const reason = req.body.reason;
 
-    const annualLeave = new AnnualLeave({
+    const annualLeave = new AnnualLeave({             //Tạo mới annualLeave
         annualLeaveDate: annualLeaveDate,
         annualLeaveHour: annualLeaveHour,
         reason: reason,

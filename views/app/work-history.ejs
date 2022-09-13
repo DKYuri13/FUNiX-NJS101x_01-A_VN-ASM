@@ -6,7 +6,7 @@
 
     <main>
         <h1>Tổng Kết:</h1>
-        <form action="/work-history/" method="POST">
+        <form action="/work-history/" method="POST">                                          <!--Form chọn tháng-->
             <label style="font-weight:bold" for="month">Chọn tháng:</label>
             <select class="form-select" name="month" id="month">
                 <option value="1" <%= month == 1 ? 'selected' : ''%>>Tháng 1</option>
@@ -24,7 +24,7 @@
             </select>
             <button class="btn" type="submit">Chọn</button>
         </form>
-        <div class="card">
+        <div class="card">                                                                                                  <!--Thông tin lương tháng-->
             <ul class="salary">
                 <li class="salary_items">Hệ số lương: <%= staff.salaryScale %> </li>
                 <li class="salary_items">Số giờ làm thêm: <%= overTimeMonth %></li>
@@ -32,15 +32,16 @@
                 <li class="salary_items">Lương: <%= (staff.salaryScale*3000000+((overTimeMonth - totalTimeShort)*200000)) %> đồng (Lương = salaryScale * 3000000 + (overTime - số giờ làm thiếu) * 200000)</li>
             </ul>
         </div>
-        <h1>Lịch sử làm việc:</h1>
+        <h1>Lịch sử làm việc:</h1>                                                  <!--Lịch sử làm việc-->
         <% for (let session of staff.sessions) { %>
             <div class="card">
                 <ul class="history">
                     <li class="history_items">Ngày: <%= session.day %> tháng <%= session.month %></li>
-                    <li class="history_items">Giờ nghỉ đã đăng ký: <% for (let annualLeave of staff.annualLeave) { %>
-                        <p>Ngày: <%= annualLeave.annualLeaveDate %></p>
-                        <p>Số giờ nghỉ: <%= annualLeave.annualLeaveHour %></p>
-                    <% } %> </li>
+                    <li class="history_items">Giờ nghỉ đã đăng ký: 
+                        <% for (let annualLeave of staff.annualLeave) { %>
+                            <p>Ngày: <%= annualLeave.annualLeaveDate %></p>
+                            <p>Số giờ nghỉ: <%= annualLeave.annualLeaveHour %></p>
+                        <% } %> </li>
                     <% for (item of session.items) { %>
                         <li class="history_items">Nơi làm việc: <%= item.workplace %> </li>
                         <li class="history_items">Giờ bắt đầu làm: <%= item.startTime %></li>
